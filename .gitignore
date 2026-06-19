@@ -1,0 +1,33 @@
+# ──────────────────────────────────────────────────────────────────────
+# NERV — .gitignore
+#
+# Este repo es SOLO el framework NERV. En esta máquina, el directorio
+# .claude/ mezcla el framework con ESTADO PERSONAL de Claude Code
+# (backups de config con credenciales, cache, file-history, instrucciones
+# personales, herramientas de terceros como sdd-*). Nada de eso debe
+# publicarse.
+#
+# Regla: ignorar TODO .claude/ y volver a incluir SOLO los archivos del
+# framework (agents/nerv-* y commands/nerv-*).
+# ──────────────────────────────────────────────────────────────────────
+
+# OS / editores
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Estado personal de Claude Code — NUNCA publicar
+.claude/*
+!.claude/agents/
+!.claude/commands/
+.claude/agents/*
+!.claude/agents/nerv-*.md
+.claude/commands/*
+!.claude/commands/nerv-*.md
+
+# Memoria real del usuario (vive en ~/.nerv/, no debería estar acá, pero por las dudas)
+.nerv/
