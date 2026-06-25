@@ -119,7 +119,8 @@ UNA auditoría, no subagentes en paralelo (P-E: QA no convoca a nadie).
   cases), *legibilidad* (claridad/mantenibilidad), *fiabilidad* (tests/correctitud).
 - **Adversarial** (cambio architecture-critical / ADR nuevo, o 2º intento tras un
   rechazo): además de Strong, una pasada hostil — "asumí que está roto, encontrá el
-  fallo". La corre QA; en cambios architecture-critical la corre nerv-arquitecto.
+  fallo". La corre QA; en cambios architecture-critical la corre nerv-arquitecto; en
+  cambios de seguridad/infra críticos (auth/pagos/secretos/PII/deploy), nerv-devops.
 - Anti-bloat (P-E): el nivel se elige por el ticket, NO se sube "por las dudas".
   Subir de nivel sin trigger es desperdicio de tokens; bajarlo en un path sensible
   es negligencia.

@@ -156,13 +156,12 @@ nerv-desktop  (nuevo rol)             → nerv-desktop (Python + PySide6 — ✅
 
 | Agente | Cuándo lo necesitás | Esfuerzo |
 |--------|---------------------|----------|
-| `nerv-devops` | Cuando empieces a deployar seguido. Tu mix de Tauri (builds multi-OS) + multi-stack → DevOps llega antes que en proyectos chicos. | M |
-| `nerv-security` | Cuando un proyecto maneje auth real, datos sensibles, pagos. Hasta entonces el QA básico alcanza. | M |
+| ✅ `nerv-devops` | **Entregado.** DevOps **&amp; Seguridad** fusionados (`model: opus`, consultivo): SaaS/multi-tenancy, CI/CD, IaC, observabilidad + postura de seguridad y revisión adversarial (P-11). Absorbe el `nerv-security` que estaba planeado aparte. | M |
 | `nerv-data` | Cuando tengas queries pesadas o migraciones complejas en NestJS+PG. Hoy el arquitecto improvisa. | S |
 
 **P-15: Reglas de invocación de especialistas** | XS pero crítica — sin esto los agentes nuevos se vuelven cargo cult.
 
-**Recomendación de orden:** DevOps primero (vas a empezar a deployar), Security después (cuando un proyecto lo demande), Data al final (es el menos urgente).
+**Recomendación de orden:** DevOps+Seguridad ya está; Data al final (es el menos urgente).
 
 ---
 

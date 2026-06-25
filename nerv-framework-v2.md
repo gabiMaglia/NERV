@@ -25,7 +25,8 @@ NERV vive en **dos niveles**, cableados por `install.sh` vía symlinks (este rep
 │   ├── nerv-mobile.md
 │   ├── nerv-web.md
 │   ├── nerv-desktop.md
-│   └── nerv-qa.md
+│   ├── nerv-qa.md
+│   └── nerv-devops.md
 └── commands/                       ← Slash commands (/nerv-init, /nerv-close, …)
 
 ~/.nerv/                            ← MEMORIA GLOBAL DE NERV (copiada, no symlink)
@@ -86,6 +87,7 @@ La "agenda" de proyectos del Orquestador. **Una fila por proyecto**, formato com
 | 2.5 | nerv-web | `.claude/agents/nerv-web.md` | sonnet | React (Vite) y Next.js (App Router): páginas, routing, estado, consumo de API. |
 | 2.6 | nerv-desktop | `.claude/agents/nerv-desktop.md` | sonnet | Python + PySide6 multiplataforma: UI, empaquetado y distribución. |
 | 2.7 | nerv-qa | `.claude/agents/nerv-qa.md` | sonnet | Audita contra criterios/ADRs/contratos; único que marca "Done"; aplica niveles (P-11). |
+| 2.8 | nerv-devops | `.claude/agents/nerv-devops.md` | opus | DevOps & Seguridad (consultivo): SaaS (multi-tenancy, CI/CD, IaC, observabilidad), postura de seguridad, ADRs de infra; revisión adversarial de seguridad (P-11). |
 
 > Reglas transversales que cumplen todos los Tech Leads: trabajan SOLO sobre el ticket del
 > handoff; leen su sección en `~/.nerv/playbook.md` antes de codear (P-1); entregan en estado

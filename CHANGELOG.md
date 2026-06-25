@@ -5,6 +5,7 @@ Formato basado en [Keep a Changelog](https://keepachangelog.com/), versionado co
 ## [Unreleased]
 
 ### Added
+- Agente `nerv-devops` (DevOps & Seguridad, `model: opus`): consultivo como el Arquitecto. Experto en SaaS (multi-tenancy, CI/CD, IaC, observabilidad, escalado, costos) y seguridad informática. Se invoca ante cambios de arquitectura de infra/deploy o implementaciones sensibles; autoridad vía ADR (coordina con nerv-arquitecto: app/DB/contratos vs infra/seguridad). Corre la **revisión adversarial de seguridad** (P-11) en paths auth/pagos/secretos/PII. Registrado en `install.sh`.
 - **Protocolo P-11 (Niveles de revisión / QA escalonado):** QA gradúa el rigor según riesgo del ticket — Advisory (cambio acotado), Strong (paths sensibles auth/seguridad/pagos/migraciones o diff >400 líneas, 4 lentes: riesgo/resiliencia/legibilidad/fiabilidad), Adversarial (architecture-critical o 2º intento, pasada hostil). Inspirado en el modelo de costo escalonado de gentle-ai, traducido a protocolo NERV. El Orquestador marca el nivel al delegar (P-1).
 - **Handoff de retorno estructurado (P-1):** el contrato de retorno pasa de prosa libre a campos fijos (≤6 líneas): `estado` · `archivos tocados` · `riesgos/caveats` · `cómo probar`. Alineadas las líneas "Entrega =" de los 4 Tech Leads.
 - **P-8 ampliado:** commit = unidad de trabajo (comportamiento + tests/docs juntos, rollback aislado, mensaje outcome-focused) y chained PRs cuando el forecast supera 400 líneas. Inspirado en las skills `work-unit-commits`/`chained-pr` de gentle-ai.
