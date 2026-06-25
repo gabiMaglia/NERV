@@ -26,7 +26,7 @@ link() {
 }
 
 echo "→ Agentes:"
-for agent in nerv-orquestador nerv-arquitecto nerv-backend nerv-mobile nerv-web nerv-desktop nerv-qa nerv-devops; do
+for agent in nerv-orquestador nerv-arquitecto nerv-backend nerv-mobile nerv-web nerv-desktop nerv-qa nerv-devops nerv-security; do
   link "${NERV_REPO}/.claude/agents/${agent}.md" \
        "${CLAUDE_HOME}/agents/${agent}.md" \
        "agent: ${agent}"

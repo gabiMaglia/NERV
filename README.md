@@ -30,7 +30,7 @@ cd NERV
 
 `install.sh` es **idempotente** (corrélo las veces que quieras). Crea symlinks globales desde este repo hacia `~/.claude/`:
 
-- `~/.claude/agents/nerv-*.md` — los 8 agentes
+- `~/.claude/agents/nerv-*.md` — los 9 agentes
 - `~/.claude/commands/nerv-*.md` — los slash commands
 - `~/.claude/nerv-protocols.md` — los protocolos
 
@@ -78,7 +78,8 @@ El Orquestador hace el boot: lee tu registry, te muestra los proyectos conocidos
 | `nerv-web` | Sonnet | React (Vite) y Next.js (App Router). |
 | `nerv-desktop` | Sonnet | Python + PySide6 multiplataforma (Windows/macOS). |
 | `nerv-qa` | Sonnet | Audita contra criterios/ADRs/contratos. Único que marca "Done". |
-| `nerv-devops` | Opus | DevOps & Seguridad (consultivo): SaaS, multi-tenancy, CI/CD, IaC, observabilidad, postura de seguridad. |
+| `nerv-devops` | Opus | DevOps & Seguridad operacional (consultivo): SaaS, multi-tenancy, CI/CD, IaC, observabilidad, secretos/hardening. |
+| `nerv-security` | Opus | AppSec dedicado — **solo por pedido explícito**. Threat model formal, OWASP/ASVS, cripto, supply chain; informe por severidad. |
 
 El stack por defecto es **React Native · NestJS + PostgreSQL**, pero cada Tech Lead cubre su stack. Cambiar de stack o tecnología requiere un ADR.
 
@@ -122,7 +123,7 @@ Como viaja con el repo, cualquiera que clone tu proyecto hereda el contexto comp
 |---------|--------|
 | `nerv-framework-v2.md` | Mapa de la arquitectura (apunta a agentes y protocolos, no los copia). |
 | `nerv-protocols.md` | Los protocolos — **fuente de verdad**. |
-| `.claude/agents/nerv-*.md` | Los 8 agentes — **fuente de verdad**. |
+| `.claude/agents/nerv-*.md` | Los 9 agentes — **fuente de verdad**. |
 | `.claude/commands/nerv-*.md` | Los slash commands. |
 | `registry.md` / `playbook.md` | Plantillas (el real vive en `~/.nerv/`). |
 | `install.sh` | Instalación global vía symlinks. |

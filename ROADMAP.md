@@ -156,12 +156,13 @@ nerv-desktop  (nuevo rol)             → nerv-desktop (Python + PySide6 — ✅
 
 | Agente | Cuándo lo necesitás | Esfuerzo |
 |--------|---------------------|----------|
-| ✅ `nerv-devops` | **Entregado.** DevOps **&amp; Seguridad** fusionados (`model: opus`, consultivo): SaaS/multi-tenancy, CI/CD, IaC, observabilidad + postura de seguridad y revisión adversarial (P-11). Absorbe el `nerv-security` que estaba planeado aparte. | M |
+| ✅ `nerv-devops` | **Entregado.** DevOps & Seguridad operacional (`model: opus`, consultivo): SaaS/multi-tenancy, CI/CD, IaC, observabilidad, secretos/hardening + revisión adversarial inline (P-11). | M |
+| ✅ `nerv-security` | **Entregado.** AppSec dedicado (`model: opus`): threat model formal, OWASP/ASVS, cripto, supply chain. Se invoca **solo por pedido explícito del PO** (opt-in, no consultivo automático). | M |
 | `nerv-data` | Cuando tengas queries pesadas o migraciones complejas en NestJS+PG. Hoy el arquitecto improvisa. | S |
 
 **P-15: Reglas de invocación de especialistas** | XS pero crítica — sin esto los agentes nuevos se vuelven cargo cult.
 
-**Recomendación de orden:** DevOps+Seguridad ya está; Data al final (es el menos urgente).
+**Recomendación de orden:** DevOps + Security ya están; Data al final (es el menos urgente).
 
 ---
 
