@@ -1,6 +1,129 @@
-# NERV — Framework Multi-Agente para Claude Code
+# NERV — Multi-Agent Framework for Claude Code
 
-NERV es un equipo de agentes especializados que trabaja **como un equipo de software real**: un Orquestador (Scrum Master) que es el único que habla con vos, Tech Leads por stack, un Arquitecto y un QA. Coordinan vía handoffs, dejan memoria en archivos versionados ("Engrams") y **aprenden de sus errores entre sesiones**.
+**English** · [Español](#nerv--framework-multiagente-para-claude-code)
+
+NERV is a team of specialized agents that works **like a real software team**: an Orchestrator (Scrum Master) who is the only one that talks to you, Tech Leads per stack, an Architect, a DevOps/Security engineer and a QA. They coordinate via handoffs, leave memory in versioned files ("Engrams") and **learn from their mistakes across sessions**.
+
+Three principles hold it together:
+
+1. **The PO (you) only talks to the Orchestrator.** The rest of the team works by delegation.
+2. **Memory is files.** What isn't written in the Engram doesn't exist.
+3. **Token economy.** Nobody reads or writes more than necessary.
+
+> Built for **Claude Code (CLI)** at user level: install once, works in any folder.
+
+## Requirements
+
+- **[Claude Code](https://claude.com/claude-code)** installed.
+- `bash` (for `install.sh`).
+- *(Optional)* `git` + `gh` (GitHub) or `az` with the `azure-devops` extension, or the Atlassian/ADO MCP, if you want to sync tickets with an external tracker (protocol P-7). Without them NERV still works and just skips the sync.
+
+## Install
+
+```bash
+git clone https://github.com/gabiMaglia/NERV.git
+cd NERV
+./install.sh
+```
+
+`install.sh` is **idempotent** (run it as many times as you want). It creates global symlinks from this repo into `~/.claude/`:
+
+- `~/.claude/agents/nerv-*.md` — the 9 agents
+- `~/.claude/commands/nerv-*.md` — the slash commands
+- `~/.claude/nerv-protocols.md` — the protocols
+
+And it copies (without overwriting if they already exist) your global memory into `~/.nerv/`:
+
+- `~/.nerv/registry.md` — the "address book" of your projects
+- `~/.nerv/playbook.md` — cross-project process lessons
+
+> Since they are **symlinks**, editing the repo files takes effect globally without reinstalling. You only re-run `install.sh` when you **add a new file** (an agent or command that didn't exist).
+
+## Usage
+
+From **any** folder (ideally your project repo), start with:
+
+```
+/nerv-init
+```
+
+The Orchestrator boots: reads your registry, shows the known projects, lets you pick one (or onboard a new one) and asks for today's task. From there you work talking only to it.
+
+### Slash commands
+
+| Command | Purpose |
+|---------|---------|
+| `/nerv-init` | Start the NERV session (Orchestrator boot). |
+| `/nerv-new-project` | Onboard a new project (guided intake). |
+| `/nerv-status` | Live summary of the active project. |
+| `/nerv-ticket "<desc>"` | Create a backlog ticket. |
+| `/nerv-handoff <agent> <ticket>` | Delegate a ticket to a Tech Lead (P-1). |
+| `/nerv-adr "<title>"` | Create an ADR (architecture decision). |
+| `/nerv-close` | Close the session: update memory + retro. |
+
+## The team
+
+| Agent | Model | Role |
+|-------|-------|------|
+| `nerv-orquestador` | Opus | Sole contact with the PO. Registry, backlog, handoffs, git, trackers, retro. |
+| `nerv-arquitecto` | Opus | ADRs, PostgreSQL schema, cross-layer contracts, adversarial review. |
+| `nerv-backend` | Sonnet | NestJS + PostgreSQL: modules, endpoints, migrations, tests. |
+| `nerv-mobile` | Sonnet | React Native (Expo). |
+| `nerv-web` | Sonnet | React (Vite) and Next.js (App Router). |
+| `nerv-desktop` | Sonnet | Cross-platform Python + PySide6 (Windows/macOS). |
+| `nerv-qa` | Sonnet | Audits against criteria/ADRs/contracts. Sole authority to mark "Done". |
+| `nerv-devops` | Opus | DevOps & operational security (advisory): SaaS, multi-tenancy, CI/CD, IaC, observability, secrets/hardening. |
+| `nerv-security` | Opus | Dedicated AppSec — **explicit request only**. Formal threat model, OWASP/ASVS, crypto, supply chain. |
+
+The default stack is **React Native · NestJS + PostgreSQL**, but each Tech Lead covers its stack. Changing stack or technology requires an ADR.
+
+## Protocols
+
+The team's behavior is governed by short protocols (`nerv-protocols.md`):
+
+- **P-0** Memory · **P-E** Token economy
+- **P-1** Handoff · **P-2** QA rejection · **P-3** Zero assumptions
+- **P-4** Write ownership · **P-5** Session close · **P-6** Project onboarding
+- **P-7** External tracker (ADO/Jira) · **P-8** Git flow · **P-9** Chain of command
+- **P-10** Closing retro (continuous learning)
+- **P-11** Review levels (tiered QA: Advisory / Strong / Adversarial)
+
+## Per-project memory (Engram)
+
+Every repo you work in carries a versioned `engram/` folder:
+
+```
+engram/
+├── _state.md            # Compact live state (the only thing read at boot)
+├── 01_requirements.md
+├── 02_architecture.md   # ADRs
+├── 03_backlog.md
+├── 04_api_contracts.md
+├── 05_handoff_log.md
+└── 06_retro.md          # Per-session retro (P-10)
+```
+
+Since it travels with the repo, anyone who clones your project inherits the team's full context.
+
+## Uninstall
+
+NERV only creates symlinks; delete them and you're done (your memory in `~/.nerv/` is untouched):
+
+```bash
+rm ~/.claude/agents/nerv-*.md ~/.claude/commands/nerv-*.md ~/.claude/nerv-protocols.md
+```
+
+## License
+
+MIT.
+
+---
+
+# NERV — Framework Multiagente para Claude Code
+
+[English](#nerv--multi-agent-framework-for-claude-code) · **Español**
+
+NERV es un equipo de agentes especializados que trabaja **como un equipo de software real**: un Orquestador (Scrum Master) que es el único que habla con vos, Tech Leads por stack, un Arquitecto, un DevOps/Seguridad y un QA. Coordinan vía handoffs, dejan memoria en archivos versionados ("Engrams") y **aprenden de sus errores entre sesiones**.
 
 Tres principios lo sostienen:
 
@@ -10,20 +133,16 @@ Tres principios lo sostienen:
 
 > Pensado para **Claude Code (CLI)** a nivel de usuario: se instala una vez y funciona en cualquier carpeta.
 
----
-
 ## Requisitos
 
 - **[Claude Code](https://claude.com/claude-code)** instalado.
 - `bash` (para `install.sh`).
 - *(Opcional)* `git` + `gh` (GitHub) o `az` con la extensión `azure-devops`, o el MCP de Atlassian/ADO, si querés sincronizar tickets con un tracker externo (protocolo P-7). Si faltan, NERV funciona igual y omite la sincronización.
 
----
-
 ## Instalación
 
 ```bash
-git clone https://github.com/<usuario>/NERV.git
+git clone https://github.com/gabiMaglia/NERV.git
 cd NERV
 ./install.sh
 ```
@@ -40,8 +159,6 @@ Y copia (sin sobrescribir si ya existen) tu memoria global en `~/.nerv/`:
 - `~/.nerv/playbook.md` — lecciones de proceso cross-proyecto
 
 > Como son **symlinks**, editar los archivos del repo impacta global sin reinstalar. Solo volvés a correr `install.sh` cuando **agregás un archivo nuevo** (un agente o command que no existía).
-
----
 
 ## Uso
 
@@ -65,8 +182,6 @@ El Orquestador hace el boot: lee tu registry, te muestra los proyectos conocidos
 | `/nerv-adr "<título>"` | Crea un ADR (decisión de arquitectura). |
 | `/nerv-close` | Cierra la sesión: actualiza memoria + retro. |
 
----
-
 ## El equipo
 
 | Agente | Modelo | Rol |
@@ -79,11 +194,9 @@ El Orquestador hace el boot: lee tu registry, te muestra los proyectos conocidos
 | `nerv-desktop` | Sonnet | Python + PySide6 multiplataforma (Windows/macOS). |
 | `nerv-qa` | Sonnet | Audita contra criterios/ADRs/contratos. Único que marca "Done". |
 | `nerv-devops` | Opus | DevOps & Seguridad operacional (consultivo): SaaS, multi-tenancy, CI/CD, IaC, observabilidad, secretos/hardening. |
-| `nerv-security` | Opus | AppSec dedicado — **solo por pedido explícito**. Threat model formal, OWASP/ASVS, cripto, supply chain; informe por severidad. |
+| `nerv-security` | Opus | AppSec dedicado — **solo por pedido explícito**. Threat model formal, OWASP/ASVS, cripto, supply chain. |
 
 El stack por defecto es **React Native · NestJS + PostgreSQL**, pero cada Tech Lead cubre su stack. Cambiar de stack o tecnología requiere un ADR.
-
----
 
 ## Protocolos
 
@@ -95,8 +208,6 @@ El comportamiento del equipo está gobernado por protocolos cortos (`nerv-protoc
 - **P-7** Tracker externo (ADO/Jira) · **P-8** Flujo Git · **P-9** Cadena de mando
 - **P-10** Retro de cierre (aprendizaje continuo)
 - **P-11** Niveles de revisión (QA escalonado: Advisory / Strong / Adversarial)
-
----
 
 ## Memoria por proyecto (Engram)
 
@@ -115,22 +226,6 @@ engram/
 
 Como viaja con el repo, cualquiera que clone tu proyecto hereda el contexto completo del equipo.
 
----
-
-## Cómo está organizado este repo
-
-| Archivo | Qué es |
-|---------|--------|
-| `nerv-framework-v2.md` | Mapa de la arquitectura (apunta a agentes y protocolos, no los copia). |
-| `nerv-protocols.md` | Los protocolos — **fuente de verdad**. |
-| `.claude/agents/nerv-*.md` | Los 9 agentes — **fuente de verdad**. |
-| `.claude/commands/nerv-*.md` | Los slash commands. |
-| `registry.md` / `playbook.md` | Plantillas (el real vive en `~/.nerv/`). |
-| `install.sh` | Instalación global vía symlinks. |
-| `ROADMAP.md` · `CHANGELOG.md` | Evolución y cambios versionados. |
-
----
-
 ## Desinstalar
 
 NERV solo crea symlinks; borralos y listo (tu memoria en `~/.nerv/` no se toca):
@@ -138,8 +233,6 @@ NERV solo crea symlinks; borralos y listo (tu memoria en `~/.nerv/` no se toca):
 ```bash
 rm ~/.claude/agents/nerv-*.md ~/.claude/commands/nerv-*.md ~/.claude/nerv-protocols.md
 ```
-
----
 
 ## Licencia
 
