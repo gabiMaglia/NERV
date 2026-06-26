@@ -20,7 +20,7 @@ Pasos:
 
 4. **Preguntame los campos que falten** en UN solo mensaje (P-3 cero suposiciones):
    - Criterios de aceptación (lista numerada, mínimo 1)
-   - Agente sugerido (nerv-backend / nerv-mobile / nerv-web / nerv-desktop / nerv-qa)
+   - Agente sugerido (nerv-backend / nerv-mobile / nerv-web / nerv-desktop / nerv-ai / nerv-qa)
    - Nivel de revisión (P-11): A=Advisory (default) · S=Strong (auth/seguridad/pagos/migraciones o >400 líneas) · X=Adversarial (architecture-critical). Si no lo indico, default A.
    - Rama propuesta (sugerí formato `feature/T-XXX-slug` o `feature/AB123-slug` si hay ADO)
    - Prioridad / sprint

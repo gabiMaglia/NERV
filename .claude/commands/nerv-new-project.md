@@ -14,7 +14,7 @@ Pasos (en orden):
    - `tracker` — ADO / Jira / ninguno
    - `board` — URL del board si hay tracker
    - `Figma` — URL si hay diseño
-   - `stack` — backend (nestjs por default | none) / mobile (rn-expo | none) / web (react-vite | nextjs | none) / desktop (pyside6 | none). Cada uno mapea a su agente (nerv-backend/mobile/web/desktop).
+   - `stack` — backend (nestjs por default | none) / mobile (rn-expo | none) / web (react-vite | nextjs | none) / desktop (pyside6 | none) / ai (llm-agents | none). Cada uno mapea a su agente (nerv-backend/mobile/web/desktop/ai).
    - `en_prod` — true/false (define si aplica protocolo de hotfix)
 
 2. **Con mis respuestas, verificá el repo**:

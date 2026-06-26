@@ -27,7 +27,8 @@ NERV vive en **dos niveles**, cableados por `install.sh` vía symlinks (este rep
 │   ├── nerv-desktop.md
 │   ├── nerv-qa.md
 │   ├── nerv-devops.md
-│   └── nerv-security.md         ← AppSec dedicado, solo por pedido explícito del PO
+│   ├── nerv-security.md         ← AppSec dedicado, solo por pedido explícito del PO
+│   └── nerv-ai.md               ← Stack IA/multiagente (producto): prompts, RAG, evals, loops
 └── commands/                       ← Slash commands (/nerv-init, /nerv-close, …)
 
 ~/.nerv/                            ← MEMORIA GLOBAL DE NERV (copiada, no symlink)
@@ -90,6 +91,7 @@ La "agenda" de proyectos del Orquestador. **Una fila por proyecto**, formato com
 | 2.7 | nerv-qa | `.claude/agents/nerv-qa.md` | sonnet | Audita contra criterios/ADRs/contratos; único que marca "Done"; aplica niveles (P-11). |
 | 2.8 | nerv-devops | `.claude/agents/nerv-devops.md` | opus | DevOps & Seguridad operacional (consultivo): SaaS (multi-tenancy, CI/CD, IaC, observabilidad), secretos/hardening, ADRs de infra; revisión adversarial de seguridad inline (P-11). |
 | 2.9 | nerv-security | `.claude/agents/nerv-security.md` | opus | AppSec dedicado — **solo por pedido explícito del PO**. Threat model formal, OWASP/ASVS, cripto, supply chain; informe por severidad, puede bloquear release. |
+| 2.10 | nerv-ai | `.claude/agents/nerv-ai.md` | sonnet | Tech Lead IA/multiagente (producto): prompt engineering, RAG, evals, agent loops/harness, orquestación, costo/latencia, guardrails. Decisiones de topología/modelo vía ADR. |
 
 > Reglas transversales que cumplen todos los Tech Leads: trabajan SOLO sobre el ticket del
 > handoff; leen su sección en `~/.nerv/playbook.md` antes de codear (P-1); entregan en estado

@@ -28,7 +28,7 @@ cd NERV
 
 `install.sh` is **idempotent** (run it as many times as you want). It creates global symlinks from this repo into `~/.claude/`:
 
-- `~/.claude/agents/nerv-*.md` — the 9 agents
+- `~/.claude/agents/nerv-*.md` — the 10 agents
 - `~/.claude/commands/nerv-*.md` — the slash commands
 - `~/.claude/nerv-protocols.md` — the protocols
 
@@ -74,6 +74,7 @@ The Orchestrator boots: reads your registry, shows the known projects, lets you 
 | `nerv-qa` | Sonnet | Audits against criteria/ADRs/contracts. Sole authority to mark "Done". |
 | `nerv-devops` | Opus | DevOps & operational security (advisory): SaaS, multi-tenancy, CI/CD, IaC, observability, secrets/hardening. |
 | `nerv-security` | Opus | Dedicated AppSec — **explicit request only**. Formal threat model, OWASP/ASVS, crypto, supply chain. |
+| `nerv-ai` | Sonnet | AI/multi-agent Tech Lead (product): prompt engineering, RAG, evals, agent loops/harness, orchestration, cost/latency, guardrails. |
 
 The default stack is **React Native · NestJS + PostgreSQL**, but each Tech Lead covers its stack. Changing stack or technology requires an ADR.
 
@@ -149,7 +150,7 @@ cd NERV
 
 `install.sh` es **idempotente** (corrélo las veces que quieras). Crea symlinks globales desde este repo hacia `~/.claude/`:
 
-- `~/.claude/agents/nerv-*.md` — los 9 agentes
+- `~/.claude/agents/nerv-*.md` — los 10 agentes
 - `~/.claude/commands/nerv-*.md` — los slash commands
 - `~/.claude/nerv-protocols.md` — los protocolos
 
@@ -195,6 +196,7 @@ El Orquestador hace el boot: lee tu registry, te muestra los proyectos conocidos
 | `nerv-qa` | Sonnet | Audita contra criterios/ADRs/contratos. Único que marca "Done". |
 | `nerv-devops` | Opus | DevOps & Seguridad operacional (consultivo): SaaS, multi-tenancy, CI/CD, IaC, observabilidad, secretos/hardening. |
 | `nerv-security` | Opus | AppSec dedicado — **solo por pedido explícito**. Threat model formal, OWASP/ASVS, cripto, supply chain. |
+| `nerv-ai` | Sonnet | Tech Lead IA/multiagente (producto): prompt engineering, RAG, evals, agent loops/harness, orquestación, costo/latencia, guardrails. |
 
 El stack por defecto es **React Native · NestJS + PostgreSQL**, pero cada Tech Lead cubre su stack. Cambiar de stack o tecnología requiere un ADR.
 
