@@ -28,6 +28,8 @@ Thumbs.db
 !.claude/agents/nerv-*.md
 .claude/commands/*
 !.claude/commands/nerv-*.md
+# Ideas de proyectos futuros — privado, nunca publicar (ya cubierto por .claude/*, explícito por intención)
+.claude/future-projects/
 
 # Memoria real del usuario (vive en ~/.nerv/, no debería estar acá, pero por las dudas)
 .nerv/
